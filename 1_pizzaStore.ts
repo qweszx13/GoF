@@ -38,3 +38,10 @@ const dongPizzaStore = new PizzaStore;
 dongPizzaStore.orderPizza('cheese');
 dongPizzaStore.orderPizza('pepperoni');
 dongPizzaStore.orderPizza('gorgonzola');
+
+/** 
+ * 1. PizzaStore クラスがピザの種類を直接生成している
+ * 2. ピザ生成ロジック、注文ロジックが一箇所にいる
+ * 3. OCP(Open-Closed Principle) を守っていない
+ *  →コードは拡張することはできるが、修正はなるべく少なくなる方が良い
+ **/
