@@ -36,4 +36,6 @@ console.log('\n== クローンピザ ==');
 clonedSignature.prepare();
 clonedSignature.bake();
 
+console.log(originalSignature === clonedSignature);
+
 export {}

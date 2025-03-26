@@ -28,21 +28,21 @@ var Pizza = /** @class */ (function () {
     };
     return Pizza;
 }());
-var NYIngredientFactory = /** @class */ (function () {
-    function NYIngredientFactory() {
+var NewyorkIngredientFactory = /** @class */ (function () {
+    function NewyorkIngredientFactory() {
     }
-    NYIngredientFactory.prototype.createDough = function () { return 'Thin Crust Dough'; }; //具体的実装
-    NYIngredientFactory.prototype.createSauce = function () { return 'Ketyap Sauce'; }; //具体的実装
-    return NYIngredientFactory;
+    NewyorkIngredientFactory.prototype.createDough = function () { return 'Thin Crust Dough'; }; //具体的実装
+    NewyorkIngredientFactory.prototype.createSauce = function () { return 'Ketyap Sauce'; }; //具体的実装
+    return NewyorkIngredientFactory;
 }());
 var ChicagoIngredientFactory = /** @class */ (function () {
     function ChicagoIngredientFactory() {
     }
     ChicagoIngredientFactory.prototype.createDough = function () { return 'Deep Dish Dough'; }; //具体的実装
-    ChicagoIngredientFactory.prototype.createSauce = function () { return 'Plum Tomato Sauce'; }; //具体的実装
+    ChicagoIngredientFactory.prototype.createSauce = function () { return 'Tomato Sauce'; }; //具体的実装
     return ChicagoIngredientFactory;
 }());
-// カスタムピザクラス
+// カスタムピザクラス、ピザクラスだけでは特定の形にできない！
 var CustomPizza = /** @class */ (function (_super) {
     __extends(CustomPizza, _super);
     function CustomPizza(name, ingredientFactory) {
@@ -51,6 +51,7 @@ var CustomPizza = /** @class */ (function (_super) {
         return _this;
     }
     // 原材料ファクトリを使用した準備処理
+    // override
     CustomPizza.prototype.prepare = function () {
         var dough = this.ingredientFactory.createDough();
         var sauce = this.ingredientFactory.createSauce();
@@ -58,11 +59,13 @@ var CustomPizza = /** @class */ (function (_super) {
     };
     return CustomPizza;
 }(Pizza));
-var nyFactory = new NYIngredientFactory(); //Newyork専用の具材を持って
+var nyFactory = new NewyorkIngredientFactory(); //Newyork専用の具材を持って
 var nyPizza = new CustomPizza("Newyork スタイルピザ", nyFactory); //Newyorkスタイルピザーを制作することができる
 nyPizza.prepare();
+nyPizza.bake();
 console.log(nyPizza);
 var chicagoFactory = new ChicagoIngredientFactory(); //Chicago専用の具材を持って
 var chicagoPizza = new CustomPizza("シカゴスタイルピザ", chicagoFactory); //Chicagoスタイルピザーを制作することができる
 chicagoPizza.prepare();
+chicagoPizza.bake();
 console.log(chicagoPizza);

@@ -21,14 +21,14 @@ var Pizza = /** @class */ (function () {
         this.ingredients = ingredients;
     }
     Pizza.prototype.prepare = function () {
-        console.log("Preparing ".concat(this.name, " with ingredients: ").concat(this.ingredients.join(', ')));
+        console.log("\u6E96\u5099\uFF1A ".concat(this.name, " - \u6750\u6599: ").concat(this.ingredients.join(', ')));
     };
     Pizza.prototype.bake = function () {
-        console.log("Baking ".concat(this.name));
+        console.log("\u713C\u304D\u307E\u3059\uFF01 - ".concat(this.name));
     };
     return Pizza;
 }());
-// 抽象クラス: ピザストア
+// 抽象クラス: ピザストア(設計図)
 var PizzaStore = /** @class */ (function () {
     function PizzaStore() {
     }
@@ -49,10 +49,10 @@ var NewyorkPizzaStore = /** @class */ (function (_super) {
     }
     NewyorkPizzaStore.prototype.createPizza = function (type) {
         if (type === 'cheese') {
-            return new Pizza('Newyork Style Cheese Pizza', ['thin crust', 'cheese']);
+            return new Pizza('Newyork Style Cheese Pizza', ['cheese']);
         }
         else if (type === 'pepperoni') {
-            return new Pizza('Newyork Style Pepperoni Pizza', ['thin crust', 'pepperoni', 'cheese']);
+            return new Pizza('Newyork Style Pepperoni Pizza', ['pepperoni', 'cheese']);
         }
         else {
             throw new Error('Unsupported pizza type');
@@ -68,10 +68,10 @@ var ChicagoPizzaStore = /** @class */ (function (_super) {
     }
     ChicagoPizzaStore.prototype.createPizza = function (type) {
         if (type === 'cheese') {
-            return new Pizza('Chicago Deep Dish Cheese Pizza', ['deep dish crust', 'cheese']);
+            return new Pizza('Chicago Deep Dish Cheese Pizza', ['cheese']);
         }
-        else if (type === 'pepperoni') {
-            return new Pizza('Chicago Deep Dish Pepperoni Pizza', ['deep dish crust', 'pepperoni', 'cheese']);
+        else if (type === 'salami') {
+            return new Pizza('Chicago Deep Dish Salami Pizza', ['salami', 'cheese']);
         }
         else {
             throw new Error('Unsupported pizza type');
@@ -86,4 +86,4 @@ console.log("ニューヨークスタイルのチーズピザを注文します:
 console.log(nyStore.orderPizza('cheese'));
 console.log(nyStore.orderPizza('pepperoni'));
 console.log("\nシカゴスタイルのペパロニピザを注文します:");
-console.log(chicagoStore.orderPizza('pepperoni'));
+console.log(chicagoStore.orderPizza('salami'));

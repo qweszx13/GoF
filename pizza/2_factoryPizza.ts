@@ -28,9 +28,9 @@ abstract class PizzaStore {
 class NewyorkPizzaStore extends PizzaStore {
   createPizza(type: string): Pizza {
     if (type === 'cheese') {
-      return new Pizza('Newyork Style Cheese Pizza', ['thin crust', 'cheese']);
+      return new Pizza('Newyork Style Cheese Pizza', ['cheese']);
     } else if (type === 'pepperoni') {
-      return new Pizza('Newyork Style Pepperoni Pizza', ['thin crust', 'pepperoni', 'cheese']);
+      return new Pizza('Newyork Style Pepperoni Pizza', ['pepperoni', 'cheese']);
     } else {
       throw new Error('Unsupported pizza type');
     }
@@ -41,9 +41,9 @@ class NewyorkPizzaStore extends PizzaStore {
 class ChicagoPizzaStore extends PizzaStore {
   createPizza(type: string): Pizza {
     if (type === 'cheese') {
-      return new Pizza('Chicago Deep Dish Cheese Pizza', ['deep dish crust', 'cheese']);
-    } else if (type === 'pepperoni') {
-      return new Pizza('Chicago Deep Dish Pepperoni Pizza', ['deep dish crust', 'pepperoni', 'cheese']);
+      return new Pizza('Chicago Deep Dish Cheese Pizza', ['cheese']);
+    } else if (type === 'salami') {
+      return new Pizza('Chicago Deep Dish Salami Pizza', ['salami', 'cheese']);
     } else {
       throw new Error('Unsupported pizza type');
     }
@@ -59,6 +59,6 @@ console.log(nyStore.orderPizza('cheese'));
 console.log(nyStore.orderPizza('pepperoni'));
 
 console.log("\nシカゴスタイルのペパロニピザを注文します:");
-console.log(chicagoStore.orderPizza('pepperoni'));
+console.log(chicagoStore.orderPizza('salami'));
 
 export {}

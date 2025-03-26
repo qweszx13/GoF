@@ -13,7 +13,7 @@ var Pizza = /** @class */ (function () {
     };
     return Pizza;
 }());
-// ビルダークラス：段階的なピザ作成を管理 ★これがビルダーパターン★
+// ビルダークラス：段階的なピザ作成を管理
 var PizzaBuilder = /** @class */ (function () {
     function PizzaBuilder() {
         this.name = '';
