@@ -31,7 +31,6 @@ class PizzaStore {
 
 const dongPizzaStore = new PizzaStore;
 
-dongPizzaStore.orderPizza('cheese');
-dongPizzaStore.orderPizza('pepperoni');
-dongPizzaStore.orderPizza('potato');
-dongPizzaStore.orderPizza('hamburger');
+console.log(dongPizzaStore.orderPizza('cheese'));
+console.log(dongPizzaStore.orderPizza('pepperoni'));
+console.log(dongPizzaStore.orderPizza('potato'));

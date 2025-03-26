@@ -1,7 +1,12 @@
 const path = require("path");
 module.exports = {
     mode: "development",
-    entry: "./src/index.ts",
+    entry: "./src/factoryMethod/index.ts",
+    // entry: "./src/index.ts",
+    // entry: "./src/index.ts",
+    // entry: "./src/index.ts",
+    // entry: "./src/index.ts",
+    // entry: "./src/index.ts",
     devtool: "inline-source-map",
     module: {
         rules: [
